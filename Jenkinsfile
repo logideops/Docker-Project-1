@@ -1,8 +1,8 @@
 pipeline {
 
   environment {
-    registry = "https://github.com/logideops/Docker-Project-1.git/flask"
-    registry_mysql = "https://github.com/logideops/Docker-Project-1.git/mysql"
+    registry = "github.com/logideops/Docker-Project-1/flask"
+    registry_mysql = "github.com/logideops/Docker-Project-1/mysql"
     dockerImage = ""
   }
 
@@ -42,8 +42,8 @@ pipeline {
    }
    stage('Build mysql image') {
      steps{
-       sh 'docker build -t "github.com/logideops/Docker-Project-1.git/mysql:$BUILD_NUMBER"  "$WORKSPACE"/mysql'
-        sh 'docker push "https://github.com/logideops/Docker-Project-1.git/mysql:$BUILD_NUMBER"'
+       sh 'docker build -t "github.com/logideops/Docker-Project-1/mysql:$BUILD_NUMBER"  "$WORKSPACE"/mysql'
+        sh 'docker push "hub.docker.com/repository/docker/logidevops/testproject_1/mysql:$BUILD_NUMBER"'
         }
       }
     stage('Deploy App') {
