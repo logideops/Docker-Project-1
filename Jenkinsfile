@@ -11,7 +11,7 @@ pipeline {
   
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/mgsgoms/Docker-Project.git'
+        git 'https://github.com/logideops/Docker-Project-1.git'
       }
     }
 
@@ -42,8 +42,8 @@ pipeline {
    }
    stage('Build mysql image') {
      steps{
-       sh 'docker build -t "10.128.15.208:5000/mgsgoms/mysql:$BUILD_NUMBER"  "$WORKSPACE"/mysql'
-        sh 'docker push "10.128.15.208:5000/mgsgoms/mysql:$BUILD_NUMBER"'
+       sh 'docker build -t "github.com/logideops/Docker-Project-1.git/mysql:$BUILD_NUMBER"  "$WORKSPACE"/mysql'
+        sh 'docker push "https://github.com/logideops/Docker-Project-1.git/mysql:$BUILD_NUMBER"'
         }
       }
     stage('Deploy App') {
